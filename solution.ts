@@ -146,9 +146,9 @@ function getUniqueValues<T>(arr: T[], arr2: T[]): T[] {
 }
 
 
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [3, 4, 5, 6, 7];
-console.log(getUniqueValues(arr1,arr2));
+// const arr1 = [1, 2, 3, 4, 5];
+// const arr2 = [3, 4, 5, 6, 7];
+// console.log(getUniqueValues(arr1,arr2));
 
 // Problem :8
 type Product={
