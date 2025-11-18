@@ -115,14 +115,40 @@ interface Book{
 // console.log(printBookDetails(myBook));
 
 // Problem :7
-function getUniqueValues<T>(arr:T[],arr2:T[]):T[]{
-    const uniqueValues = new Set([...arr, ...arr2]);
-    return Array.from(uniqueValues);
+function getUniqueValues<T>(arr: T[], arr2: T[]): T[] {
+    const result: T[] = [];
+    function addIfNotExists(item: T) {
+        let exists = false;
+        
+        // Check if item already exists in result
+        for (let i = 0; i < result.length; i++) {
+            if (result[i] === item) {
+                exists = true;
+                break; 
+            }
+        }
+        
+        
+        if (!exists) {
+            result[result.length] = item; 
+        }
+    }
+   
+    for (let i = 0; i < arr.length; i++) {
+        addIfNotExists(arr[i]);
+    }
+
+    for (let i = 0; i < arr2.length; i++) {
+        addIfNotExists(arr2[i]);
+    }
+
+    return result;
 }
 
-// const arr1 = [1, 2, 3, 4, 5];
-// const arr2 = [3, 4, 5, 6, 7];
-// console.log(getUniqueValues(arr1,arr2));
+
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [3, 4, 5, 6, 7];
+console.log(getUniqueValues(arr1,arr2));
 
 // Problem :8
 type Product={
